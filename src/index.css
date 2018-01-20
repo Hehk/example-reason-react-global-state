@@ -1,0 +1,24 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.strike-through {
+  text-decoration: line-through;
+}
+
+.filter {
+  float: left;
+  margin-right: 1rem;
+}
+
+.filter-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.filter__active {
+  color: red;
+}
