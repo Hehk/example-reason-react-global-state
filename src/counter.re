@@ -8,14 +8,8 @@ type action =
 
 let reducer = (action, state) =>
   switch action {
-  | Increment => ReasonReact.Update({count: state.count + 1})
-  | Decrement => ReasonReact.Update({count: state.count - 1})
-  };
-
-let reducer_2 = (action, state) =>
-  switch action {
-  | Increment => {count: state.count + 1}
-  | Decrement => {count: state.count - 1}
+  | Increment => ({count: state.count + 1})
+  | Decrement => ({count: state.count - 1})
   };
 
 let component = ReasonReact.statelessComponent("Counter");

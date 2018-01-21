@@ -34,16 +34,7 @@ let reducer = (action, state) =>
   | ChangeInput(input) => {...state, input}
   | ToggleItem(name) => {
       ...state,
-      items:
-        List.map(
-          (item) =>
-            if (name == item.name) {
-              {...item, completed: ! item.completed}
-            } else {
-              item
-            },
-          state.items
-        )
+      items: List.map((item) => name == item.name ? {...item, completed: ! item.completed} : item, state.items)
     }
   | ChangeFilter(filter) => {...state, filter}
   };
@@ -74,9 +65,7 @@ let make = (~dispatch, ~todoState, _children) => {
           |> List.map(
                ({name, completed}) =>
                  <li
-                   key=name
-                   className=(completed ? "strike-through" : "")
-                   onClick=((_e) => dispatch(ToggleItem(name)))>
+                   key=name className=(completed ? "strike-through" : "") onClick=((_e) => dispatch(ToggleItem(name)))>
                    (ReasonReact.stringToElement(name))
                  </li>
              )

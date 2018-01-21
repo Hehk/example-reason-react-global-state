@@ -22,7 +22,7 @@ let make = (_children) => {
     switch action {
     | Todo(todoAction) => ReasonReact.Update({...state, todo: Todo.reducer(todoAction, state.todo)})
     | Counter(counterAction) =>
-      ReasonReact.Update({...state, counter: Counter.reducer_2(counterAction, state.counter)})
+      ReasonReact.Update({...state, counter: Counter.reducer(counterAction, state.counter)})
     | ChangeElement(element) => ReasonReact.Update({...state, activeElement: element})
     },
   /* render: (self) => <div> </div> */
